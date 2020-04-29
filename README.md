@@ -136,7 +136,7 @@ class Foo
 App::make('Foo')->bar();
 ```
 
-For more information on how to use the `\TerraformV2\TerraformV2` class we are calling behind the scenes here, check out the docs at https://github.com/toin0u/TerraformV2#action, and the manager class at https://github.com/GrahamCampbell/Laravel-Manager#usage.
+For more information on how to use the `\TerraformV2\TerraformV2` class we are calling behind the scenes here, check out the docs at https://github.com/toin0u/DigitalOceanV2#action, and the manager class at https://github.com/GrahamCampbell/Laravel-Manager#usage.
 
 ##### Further Information
 
