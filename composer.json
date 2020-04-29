@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "GrahamCampbell\\DigitalOcean\\": "src/"
+            "Sdwru\\Terraform\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GrahamCampbell\\Tests\\DigitalOcean\\": "tests/"
+            "Sdwru\\Tests\\Terraform\\": "tests/"
         }
     },
     "config": {
@@ -47,7 +47,7 @@
         },
         "laravel": {
             "providers": [
-                "GrahamCampbell\\DigitalOcean\\DigitalOceanServiceProvider"
+                "Sdwru\\Terraform\\TerraformServiceProvider"
             ]
         }
     },
