@@ -41,14 +41,17 @@ return [
 
         'main' => [
             'driver'  => 'guzzle',
-            'token'   => 'your-token',
+            'token'   => env('TERRAFORM_API_TOKEN'),
         ],
+    ],
 
-        'other' => [
-            'driver'  => 'buzz',
-            'token'   => 'your-token',
+    'api' => [
+        'url' => [
+            'base' => env('TERRAFORM_API_URL', 'https://app.terraform.io/api'),
         ],
-
+        'ssl' => [
+            'verify' => env('TERRAFORM_SSL_VERIFY', false), // Set to false for development, true or blank when public ssl certificates are set up 
+        ],
     ],
 
 ];

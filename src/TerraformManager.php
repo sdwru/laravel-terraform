@@ -88,4 +88,59 @@ class DigitalOceanManager extends AbstractManager
     {
         return $this->factory;
     }
+
+    /**
+     * Get the the api configuration.
+     *
+     * @param string|null $name
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return array
+     */
+    public function getApiConfig()
+    {
+        return $this->getNamedConfig('api', 'API', 'url');
+    }
+    
+    /**
+     * Get the the ssl configuration.
+     *
+     * @param string|null $name
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return array
+     */
+    public function getSslConfig()
+    {
+        return $this->getNamedConfig('api', 'SSL', 'ssl');
+    }
+    
+    /**
+     * Make the connection instance.
+     *
+     * @param string $name
+     *
+     * @return object
+     */
+    protected function makeConnection(string $name)
+    {
+        $config = $this->getConnectionConfig($name);
+        $apiUrl = $this->getApiConfig();
+        $ssl = $this->getSslConfig();
+        $config['apiUrl'] = $apiUrl['base'];
+        $config['sslVerify'] = $ssl['verify'];
+        if (isset($this->extensions[$name])) {
+            return $this->extensions[$name]($config);
+        }
+
+        if ($driver = Arr::get($config, 'driver')) {
+            if (isset($this->extensions[$driver])) {
+                return $this->extensions[$driver]($config);
+            }
+        }
+
+        return $this->createConnection($config);
+    }
 }
