@@ -25,7 +25,7 @@ use Laravel\Lumen\Application as LumenApplication;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class DigitalOceanServiceProvider extends ServiceProvider
+class TerraformServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
@@ -63,7 +63,7 @@ class DigitalOceanServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerAdapterFactory();
-        $this->registerDigitalOceanFactory();
+        $this->registerTerraformFactory();
         $this->registerManager();
         $this->registerBindings();
     }
@@ -87,15 +87,15 @@ class DigitalOceanServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerDigitalOceanFactory()
+    protected function registerTerraformFactory()
     {
         $this->app->singleton('terraform.factory', function (Container $app) {
             $adapter = $app['terraform.adapterfactory'];
 
-            return new DigitalOceanFactory($adapter);
+            return new TerraformFactory($adapter);
         });
 
-        $this->app->alias('terraform.factory', DigitalOceanFactory::class);
+        $this->app->alias('terraform.factory', TerraformFactory::class);
     }
 
     /**
@@ -109,10 +109,10 @@ class DigitalOceanServiceProvider extends ServiceProvider
             $config = $app['config'];
             $factory = $app['terraform.factory'];
 
-            return new DigitalOceanManager($config, $factory);
+            return new TerraformManager($config, $factory);
         });
 
-        $this->app->alias('terraform', DigitalOceanManager::class);
+        $this->app->alias('terraform', TerraformManager::class);
     }
 
     /**
