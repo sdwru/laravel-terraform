@@ -52,8 +52,9 @@ class TerraformFactory
     public function make(array $config)
     {
         $adapter = $this->createAdapter($config);
+        $baseApiUrl = $config['apiUrl'];
 
-        return new TerraformV2($adapter);
+        return new TerraformV2($adapter, $baseApiUrl);
     }
 
     /**
