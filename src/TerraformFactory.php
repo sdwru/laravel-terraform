@@ -21,7 +21,7 @@ use Sdwru\Terraform\Adapter\ConnectionFactory as AdapterFactory;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class DigitalOceanFactory
+class TerraformFactory
 {
     /**
      * The adapter factory instance.
