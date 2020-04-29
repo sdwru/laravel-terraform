@@ -1,0 +1,56 @@
+{
+    "name": "graham-campbell/terraform",
+    "description": "DigitalOcean Is A DigitalOcean Bridge For Laravel",
+    "keywords": ["laravel", "framework", "terraform", "terraform-v2", "TerraformV2", "terraform bridge", "bridge", "DigitalOcean", "Laravel DigitalOcean", "Laravel-DigitalOcean", "Graham Campbell", "GrahamCampbell"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@alt-three.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "graham-campbell/manager": "^4.5",
+        "illuminate/contracts": "^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0",
+        "toin0u/terraform-v2": "^2.3"
+    },
+    "require-dev": {
+        "graham-campbell/analyzer": "^3.0",
+        "graham-campbell/testbench": "^5.4",
+        "guzzlehttp/guzzle" : "^6.3",
+        "kriswallsmith/buzz": "^0.15",
+        "mockery/mockery": "^1.3.1",
+        "phpunit/phpunit": "^8.5|^9.0"
+    },
+    "suggest": {
+        "kriswallsmith/buzz": "Enables the buzz connector.",
+        "guzzlehttp/guzzle": "Enables the guzzlehttp connector."
+    },
+    "autoload": {
+        "psr-4": {
+            "GrahamCampbell\\DigitalOcean\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GrahamCampbell\\Tests\\DigitalOcean\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "6.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "GrahamCampbell\\DigitalOcean\\DigitalOceanServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
