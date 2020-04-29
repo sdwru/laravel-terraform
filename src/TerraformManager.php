@@ -47,7 +47,7 @@ class TerraformManager extends AbstractManager
      * Create a new terraform manager instance.
      *
      * @param \Illuminate\Contracts\Config\Repository          $config
-     * @param \Sdwru\Terraform\DigitalOceanFactory $factory
+     * @param \Sdwru\Terraform\TerraformFactory $factory
      *
      * @return void
      */
