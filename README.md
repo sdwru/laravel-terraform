@@ -1,156 +1,139 @@
-Laravel DigitalOcean
+## WORK IN PROGRESS
+Do not use except for testing
+
+Laravel Terraform
 ====================
-
-Laravel DigitalOcean was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [TerraformV2](https://github.com/toin0u/TerraformV2) bridge for [Laravel](http://laravel.com). It utilises my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-DigitalOcean/releases), [security policy](https://github.com/GrahamCampbell/Laravel-DigitalOcean/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
-
-![Banner](https://user-images.githubusercontent.com/2829600/71477345-60993680-27e1-11ea-9161-d2c91c65f77a.png)
-
-<p align="center">
-<a href="https://github.styleci.io/repos/22224545"><img src="https://github.styleci.io/repos/22224545/shield" alt="StyleCI Status"></img></a>
-<a href="https://github.com/GrahamCampbell/Laravel-DigitalOcean/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Laravel-DigitalOcean/Tests?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-DigitalOcean/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-DigitalOcean?style=flat-square" alt="Coverage Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-DigitalOcean"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-DigitalOcean?style=flat-square" alt="Quality Score"></img></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/GrahamCampbell/Laravel-DigitalOcean/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-DigitalOcean?style=flat-square" alt="Latest Version"></img></a>
-</p>
 
 
 ## Installation
 
-Laravel DigitalOcean requires [PHP](https://php.net) 7.2-7.4. This particular version supports Laravel 6-7.
+Laravel Terraform requires [PHP](https://php.net) 7.2-7.4. This particular version supports Laravel 6-7.
 
-| DigitalOcean | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 |
-|--------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| 2.2          | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 3.2          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 4.0          | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 5.4          | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 6.0          | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
-
-To get the latest version, simply require the project using [Composer](https://getcomposer.org). 
-You will need to install at least one of the following dependencies for each driver:
-
-* The buzz connector requires `kriswallsmith/buzz` (`^0.15`).
-* The guzzle connector requires `guzzlehttp/guzzle` (`^6.3`).
-
-So, for example, if using the guzzle driver:
-
-```bash
-$ composer require graham-campbell/terraform guzzlehttp/guzzle
+Add the following dependencies to laravel composer.json
 ```
-
-Once installed, if you are not using automatic package discovery, then you need to register the `Sdwru\Terraform\DigitalOceanServiceProvider` service provider in your `config/app.php`.
-
-You can also optionally alias our facade:
-
-```php
-        'DigitalOcean' => Sdwru\Terraform\Facades\DigitalOcean::class,
+"require": {
+    "sdwru/terraform-v2": "dev-master",
+    "sdwru/laravel-terraform": "dev-master"
+},
+"repositories": [
+    { "type": "git", "url": "https://github.com/sdwru/terraform-v2.git" },
+    { "type": "git", "url": "https://github.com/sdwru/laravel-terraform.git" }
+],
 ```
-
+And run `composer update` from cli.
 
 ## Configuration
 
-Laravel DigitalOcean requires connection configuration.
+Laravel Terraform requires connection configuration.
 
 To get started, you'll need to publish all vendor assets:
 
 ```bash
 $ php artisan vendor:publish
 ```
+and select `Provider: Sdwru\Terraform\TerraformServiceProvider`
 
 This will create a `config/terraform.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
-There are two config options:
+The following options should not be changed.
 
 ##### Default Connection Name
 
-This option (`'default'`) is where you may specify which of the connections below you wish to use as your default connection for all work. Of course, you may use many connections at once using the manager class. The default value for this setting is `'main'`.
+This option (`'default'`) is from the upstream code for changing http clients that this package is based on. We only use guzzle in this package so the default value for this setting should be left at `'main'`.
 
-##### DigitalOcean Connections
+##### Terraform Connections
 
-This option (`'connections'`) is where each of the connections are setup for your application. Example configuration has been included, but you may add as many connections as you would like.
+This option (`'connections'`) is where each of the connections are setup for your application if we were to support more than one http client. We only use guzzle in this application.  We left this in this package for now.  It's possible we will support other clients in the future such as the Laravel v7 http client (also based on guzzle).
+
+#### Oauth credentials
+
+Gets the Terraform API key from the Laravel .env file.
+
+#### API
+
+Gets the API configuration from the Laravel .env file
 
 
 ## Usage
 
-##### DigitalOceanManager
+##### TerraformManager
 
-This is the class of most interest. It is bound to the ioc container as `'terraform'` and can be accessed using the `Facades\DigitalOcean` facade. This class implements the `ManagerInterface` by extending `AbstractManager`. The interface and abstract class are both part of my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package, so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of `\DigitalOcean\Client`.
+This is the class of most interest. It is bound to the ioc container as `'terraform'` and can be accessed using the `Facades\Terraform` facade. This class implements the `ManagerInterface` by extending `AbstractManager`. The interface and abstract class are both part of my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package, so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of `\Terraform\Client`.
 
-##### Facades\DigitalOcean
+##### Facades\Terraform
 
-This facade will dynamically pass static method calls to the `'terraform'` object in the ioc container which by default is the `DigitalOceanManager` class.
+This facade will dynamically pass static method calls to the `'terraform'` object in the ioc container which by default is the `TerraformManager` class.
 
-##### DigitalOceanServiceProvider
+##### TerraformServiceProvider
 
-This class contains no public methods of interest. This class should be added to the providers array in `config/app.php`. This class will setup ioc bindings.
+This class contains no public methods of interest. This class uses automatic package discovery and therefore does NOT need to be added to the providers array in `config/app.php`. This class will setup ioc bindings.
 
 ##### Real Examples
 
 Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the config file, it will just work:
 
 ```php
-use Sdwru\Terraform\Facades\DigitalOcean;
+use Sdwru\Terraform\Facades\Terraform;
 // you can alias this in config/app.php if you like
 
-DigitalOcean::droplet()->powerOn(12345);
+Terraform::user()->getById(1);
 // we're done here - how easy was that, it just works!
 
-DigitalOcean::size()->getAll();
+Terraform::job()->getAll();
 // this example is simple, and there are far more methods available
 ```
 
-The terraform manager will behave like it is a `\TerraformV2\TerraformV2` class. If you want to call specific connections, you can do with the `connection` method:
+The Terraform manager will behave like it is a `\TerraformV2\TerraformV2` class. If you want to call specific connections, you can do with the `connection` method:
 
 ```php
-use Sdwru\Terraform\Facades\DigitalOcean;
+use Sdwru\Terraform\Facades\Terraform;
 
 // the alternative connection is the other example provided in the default config
-DigitalOcean::connection('alternative')->rateLimit()->getRateLimit()->remaining;
+Terraform::connection('alternative')->rateLimit()->getRateLimit()->remaining;
 
 // let's check how long we have until the limit will reset
-DigitalOcean::connection('alternative')->rateLimit()->getRateLimit()->reset;
+Terraform::connection('alternative')->rateLimit()->getRateLimit()->reset;
 ```
 
 With that in mind, note that:
 
 ```php
-use Sdwru\Terraform\Facades\DigitalOcean;
+use Sdwru\Terraform\Facades\Terraform;
 
 // writing this:
-DigitalOcean::connection('main')->region()->getAll();
+Terraform::connection('main')->region()->getAll();
 
 // is identical to writing this:
-DigitalOcean::region()->getAll();
+Terraform::region()->getAll();
 
 // and is also identical to writing this:
-DigitalOcean::connection()->region()->getAll();
+Terraform::connection()->region()->getAll();
 
 // this is because the main connection is configured to be the default
-DigitalOcean::getDefaultConnection(); // this will return main
+Terraform::getDefaultConnection(); // this will return main
 
 // we can change the default connection
-DigitalOcean::setDefaultConnection('alternative'); // the default is now alternative
+Terraform::setDefaultConnection('alternative'); // the default is now alternative
 ```
 
-If you prefer to use dependency injection over facades like me, then you can easily inject the manager like so:
+If you prefer to use dependency injection over facades then you can easily inject the manager like so:
 
 ```php
-use Sdwru\Terraform\DigitalOceanManager;
+use Sdwru\Terraform\TerraformManager;
 use Illuminate\Support\Facades\App; // you probably have this aliased already
 
 class Foo
 {
-    protected $terraform;
+    protected $Terraform;
 
-    public function __construct(DigitalOceanManager $terraform)
+    public function __construct(TerraformManager $Terraform)
     {
-        $this->terraform = $terraform;
+        $this->Terraform = $Terraform;
     }
 
     public function bar()
     {
-        $this->terraform->region()->getAll();
+        $this->Terraform->region()->getAll();
     }
 }
 
@@ -166,16 +149,22 @@ There are other classes in this package that are not documented here. This is be
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/GrahamCampbell/Laravel-DigitalOcean/security/policy).
+If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/GrahamCampbell/Laravel-Terraform/security/policy).
 
 
 ## License
 
-Laravel DigitalOcean is licensed under [The MIT License (MIT)](LICENSE).
+Laravel Terraform is licensed under [The MIT License (MIT)](LICENSE).
 
 
-## For Enterprise
+---
 
-Available as part of the Tidelift Subscription
-
-The maintainers of `graham-campbell/terraform` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-graham-campbell-terraform?utm_source=packagist-graham-campbell-terraform&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/packagist-graham-campbell-Terraform?utm_source=packagist-graham-campbell-Terraform&utm_medium=referral&utm_campaign=readme">Get professional support for Laravel Terraform with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>
