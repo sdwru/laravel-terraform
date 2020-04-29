@@ -1,7 +1,7 @@
 {
-    "name": "graham-campbell/terraform",
-    "description": "DigitalOcean Is A DigitalOcean Bridge For Laravel",
-    "keywords": ["laravel", "framework", "terraform", "terraform-v2", "TerraformV2", "terraform bridge", "bridge", "DigitalOcean", "Laravel DigitalOcean", "Laravel-DigitalOcean", "Graham Campbell", "GrahamCampbell"],
+    "name": "sdwru/laravel-terraform",
+    "description": "Terraform Is A Terraform Bridge For Laravel",
+    "keywords": ["laravel", "framework", "terraform", "terraform-v2", "TerraformV2", "terraform bridge", "bridge", "Laravel Terraform", "Laravel-Terraform", "sdwru", "Sdwru"],
     "license": "MIT",
     "authors": [
         {
