@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class DigitalOcean extends Facade
+class Terraform extends Facade
 {
     /**
      * Get the registered name of the component.
