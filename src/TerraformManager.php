@@ -82,7 +82,7 @@ class TerraformManager extends AbstractManager
     /**
      * Get the factory instance.
      *
-     * @return \Sdwru\Terraform\DigitalOceanFactory
+     * @return \Sdwru\Terraform\TerraformFactory
      */
     public function getFactory()
     {
