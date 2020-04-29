@@ -14,7 +14,7 @@
         "graham-campbell/manager": "^4.5",
         "illuminate/contracts": "^6.0|^7.0",
         "illuminate/support": "^6.0|^7.0",
-        "sdwru/terraform-v2": "^2.3"
+        "sdwru/terraform-v2": "dev-master"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^3.0",
