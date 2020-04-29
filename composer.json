@@ -47,7 +47,10 @@
         "laravel": {
             "providers": [
                 "Sdwru\\Terraform\\TerraformServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Terraform": "Sdwru\\Terraform\\Facades"
+            }
         }
     },
     "minimum-stability": "dev",
