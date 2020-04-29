@@ -34,7 +34,7 @@ use Illuminate\Contracts\Config\Repository;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class DigitalOceanManager extends AbstractManager
+class TerraformManager extends AbstractManager
 {
     /**
      * The factory instance.
@@ -51,7 +51,7 @@ class DigitalOceanManager extends AbstractManager
      *
      * @return void
      */
-    public function __construct(Repository $config, DigitalOceanFactory $factory)
+    public function __construct(Repository $config, TerraformFactory $factory)
     {
         parent::__construct($config);
         $this->factory = $factory;
