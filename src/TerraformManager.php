@@ -15,6 +15,7 @@ namespace Sdwru\Terraform;
 
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Arr;
 
 /**
  * This is the terraform manager class.
