@@ -49,7 +49,7 @@
                 "Sdwru\\Terraform\\TerraformServiceProvider"
             ],
             "aliases": {
-                "Terraform": "Sdwru\\Terraform\\Facades"
+                "Terraform": "Sdwru\\Terraform\\Facades\Terraform"
             }
         }
     },
