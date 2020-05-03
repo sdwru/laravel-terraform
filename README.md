@@ -63,7 +63,7 @@ This class contains no public methods of interest. This class uses automatic pac
 
 ##### Real Examples
 
-Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the `.env` file, it will just work:
+Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the `.env` file, it should just work:
 
 ```php
 use Sdwru\Terraform\Facades\Terraform;
