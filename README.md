@@ -40,7 +40,7 @@ This option (`'default'`) is from the upstream code for changing http clients th
 
 ##### Terraform Connections
 
-This option (`'connections'`) is where each of the connections are setup for your application if we were to support more than one http client. We only use guzzle in this application.  We left this in this package for now.  It's possible we will support other clients in the future such as the Laravel v7 http client (also based on guzzle).
+This option (`'connections'`) is where each of the connections are setup for your application if we were to support more than one http client. For now, we only use guzzle in this application.  We left this in this package for now.  It's possible we will support other clients in the future such as the Laravel v7 http client (also based on guzzle).
 
 #### API
 
