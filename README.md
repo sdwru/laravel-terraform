@@ -1,6 +1,6 @@
 Laravel Terraform
 ====================
-
+A bridge between Laravel and the [Terraform PHP API library](https://github.com/sdwru/terraform-v2).
 
 ## Installation
 
