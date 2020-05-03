@@ -1,6 +1,3 @@
-## WORK IN PROGRESS
-Do not use except for testing
-
 Laravel Terraform
 ====================
 
