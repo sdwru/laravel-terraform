@@ -67,7 +67,8 @@ Here you can see an example of just how simple this package is to use. Out of th
 
 ```php
 use Sdwru\Terraform\Facades\Terraform;
-// you can alias this in config/app.php if you like
+// you can alias this in config/app.php if you like or add alias auto discover in the composer.json file.
+// https://laravel-news.com/package-auto-discovery
 
 Terraform::user()->getById(1);
 // we're done here - how easy was that, it just works!
