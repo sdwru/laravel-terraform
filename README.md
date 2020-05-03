@@ -77,38 +77,7 @@ Terraform::job()->getAll();
 // this example is simple, and there are far more methods available
 ```
 
-The Terraform manager will behave like it is a `\TerraformV2\TerraformV2` class. If you want to call specific connections, you can do with the `connection` method:
-
-```php
-use Sdwru\Terraform\Facades\Terraform;
-
-// the alternative connection is the other example provided in the default config
-Terraform::connection('alternative')->rateLimit()->getRateLimit()->remaining;
-
-// let's check how long we have until the limit will reset
-Terraform::connection('alternative')->rateLimit()->getRateLimit()->reset;
-```
-
-With that in mind, note that:
-
-```php
-use Sdwru\Terraform\Facades\Terraform;
-
-// writing this:
-Terraform::connection('main')->region()->getAll();
-
-// is identical to writing this:
-Terraform::region()->getAll();
-
-// and is also identical to writing this:
-Terraform::connection()->region()->getAll();
-
-// this is because the main connection is configured to be the default
-Terraform::getDefaultConnection(); // this will return main
-
-// we can change the default connection
-Terraform::setDefaultConnection('alternative'); // the default is now alternative
-```
+The Terraform manager will behave like it is a `\TerraformV2\TerraformV2` class. 
 
 If you prefer to use dependency injection over facades then you can easily inject the manager like so:
 
