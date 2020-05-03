@@ -4,7 +4,7 @@ A bridge between Laravel and the [Terraform PHP API library](https://github.com/
 
 ## Installation
 
-Laravel Terraform requires [PHP](https://php.net) 7.2-7.4. This particular version supports Laravel 6-7.
+Laravel Terraform requires [PHP](https://php.net) 7.2-7.4 but I have only tried using it with PHP 7.3. This particular version probably supports Laravel 6-7 but I have only tried using it on Laravel 7.
 
 Add the following dependencies to laravel composer.json
 ```
