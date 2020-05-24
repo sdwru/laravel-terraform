@@ -70,7 +70,7 @@ This class contains no public methods of interest. This class uses automatic pac
 Here you can see an example of just how simple this package is to use. Out of the box, the default adapter is `main`. After you enter your authentication details in the `.env` file, it should just work:
 
 ```php
-use Sdwru\Terraform\Facades\Terraform;
+use sdwru\Terraform\Facades\Terraform;
 // you can alias this in config/app.php if you like or add alias auto discover in the composer.json file.
 // https://laravel-news.com/package-auto-discovery
 
@@ -91,16 +91,16 @@ use Illuminate\Support\Facades\App; // you probably have this aliased already
 
 class Foo
 {
-    protected $Terraform;
+    protected $terraform;
 
-    public function __construct(TerraformManager $Terraform)
+    public function __construct(TerraformManager $terraform)
     {
-        $this->Terraform = $Terraform;
+        $this->terraform = $terraform;
     }
 
     public function bar()
     {
-        $this->Terraform->region()->getAll();
+        $this->terraform->region()->getAll();
     }
 }
 
