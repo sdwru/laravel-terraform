@@ -11,10 +11,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sdwru\Terraform;
+namespace sdwru\Terraform;
 
 use TerraformV2\TerraformV2;
-use Sdwru\Terraform\Adapter\ConnectionFactory as AdapterFactory;
+use sdwru\Terraform\Adapter\ConnectionFactory as AdapterFactory;
 
 /**
  * This is the terraform factory class.
