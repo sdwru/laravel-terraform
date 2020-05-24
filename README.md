@@ -32,6 +32,10 @@ and select `Provider: Sdwru\Terraform\TerraformServiceProvider`
 
 This will create a `config/terraform.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
+Add the following to your laravel `.env` file
+```php
+TERRAFORM_API_TOKEN=<your-terraform-cloud-token>
+```
 The following options should not be changed.
 
 ##### Default Connection Name
