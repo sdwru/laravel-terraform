@@ -15,10 +15,10 @@ namespace GrahamCampbell\Tests\DigitalOcean\Adapter;
 
 use TerraformV2\Adapter\AdapterInterface;
 use TerraformV2\Adapter\BuzzAdapter;
-use Sdwru\Terraform\Adapter\ConnectionFactory;
-use Sdwru\Terraform\Adapter\Connector\BuzzConnector;
-use Sdwru\Terraform\Adapter\Connector\ConnectorInterface;
-use Sdwru\Terraform\Adapter\Connector\GuzzleConnector;
+use sdwru\Terraform\Adapter\ConnectionFactory;
+use sdwru\Terraform\Adapter\Connector\BuzzConnector;
+use sdwru\Terraform\Adapter\Connector\ConnectorInterface;
+use sdwru\Terraform\Adapter\Connector\GuzzleConnector;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use InvalidArgumentException;
 use Mockery;
