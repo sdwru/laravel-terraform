@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sdwru\Terraform\Facades;
+namespace sdwru\Terraform\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
