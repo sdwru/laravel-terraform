@@ -51,7 +51,7 @@ Gets the API configuration from the Laravel .env file
 
 ##### TerraformManager
 
-This is the class of most interest. It is bound to the ioc container as `'terraform'` and can be accessed using the `Facades\Terraform` facade. This class implements the `ManagerInterface` by extending `AbstractManager`. The interface and abstract class are both part of my [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package, so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of `\Terraform\Client`.
+This is the class of most interest. It is bound to the ioc container as `'terraform'` and can be accessed using the `Facades\Terraform` facade. This class implements the `ManagerInterface` by extending `AbstractManager`. The interface and abstract class are both part of the [Laravel Manager](https://github.com/GrahamCampbell/Laravel-Manager) package, so you may want to go and checkout the docs for how to use the manager class over at [that repo](https://github.com/GrahamCampbell/Laravel-Manager#usage). Note that the connection class returned will always be an instance of `\Terraform\Client`.
 
 ##### Facades\Terraform
 
