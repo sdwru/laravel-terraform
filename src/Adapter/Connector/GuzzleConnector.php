@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sdwru\Terraform\Adapter\Connector;
+namespace sdwru\Terraform\Adapter\Connector;
 
 use TerraformV2\Adapter\GuzzleHttpAdapter;
 use GrahamCampbell\Manager\ConnectorInterface;
